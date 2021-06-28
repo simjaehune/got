@@ -1,16 +1,12 @@
 package helloworld;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-
-public class ever {
+public class ever1 {
 	public static void main(String arg[]) {
 		int user_id;
 		int kid_price = 25000;
 		int adult_price = 50000;
-
 		int date;
 		int ea;
 		int result;
@@ -19,7 +15,15 @@ public class ever {
 		String kid = "아이";
 		String human =null;
 		String woodea =null;
+		String[] savehuman = new String[100];
+		String[] savewoodea = new String[100];
+		int[] savedate = new int[100];
+		int[] saveea = new int[100];
+		int[] saveresult = new int[100];
+		int ordercount = 0;
+		int type;
 		
+		do {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("이용 날짜를 입력하세요. (ex 210624)");
 		date = scan.nextInt();
@@ -34,7 +38,7 @@ public class ever {
 				+ "4. 다자녀\r\n"
 				+ "5. 임산부");
 		discount = scan.nextInt();
-		
+	
 		if (user_id >= 20) {
 		result = adult_price;
 		human = adl;
@@ -59,12 +63,25 @@ public class ever {
 		result = (int) ((result * ea) * 0.8);
 		woodea = "임산부 우대";
 		}
+		
+		savedate[ordercount] = date;
+		savehuman[ordercount] = human;
+		saveea[ordercount] = ea;
+		saveresult[ordercount] = result;
+		savewoodea[ordercount] = woodea;
+		
+		System.out.println("추가입력하시겠습니까 (1. 추가, 2. 종료) : ");
+		type = scan.nextInt();
+		ordercount++;
+	    } while(type == 1);
 	    
 		System.out.println("가격은 " + result + "원 입니다");
 		System.out.println("감사합니다.");
 		System.out.println("=============== 에버랜드 =====================");
-		System.out.println("날짜:" + date + " " + human + " X " + ea +"명 "+ result + "원 " + woodea + " 감사합니다");
+		for(int index = 0; index < ordercount; index++) {
+		System.out.println("날짜:" + savedate[index] + " " + savehuman[index] + " X " + saveea[index] +"명 "+ saveresult[index] + "원 " + savewoodea[index] + " 감사합니다");
 		System.out.println("============================================");
 
 	}
 	}
+}
