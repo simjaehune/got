@@ -1,5 +1,6 @@
 package helloworld;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ever1 {
@@ -15,11 +16,11 @@ public class ever1 {
 		String kid = "아이";
 		String human =null;
 		String woodea =null;
-		String[] savehuman = new String[100];
-		String[] savewoodea = new String[100];
-		int[] savedate = new int[100];
-		int[] saveea = new int[100];
-		int[] saveresult = new int[100];
+		ArrayList<String> savehuman = new ArrayList<String>();
+		ArrayList<String> savewoodea = new ArrayList<String>();
+		ArrayList<Integer> savedate = new ArrayList<Integer>();
+		ArrayList<Integer> saveea = new ArrayList<Integer>();
+		ArrayList<Integer> saveresult = new ArrayList<Integer>();
 		int ordercount = 0;
 		int type;
 		
@@ -64,11 +65,11 @@ public class ever1 {
 		woodea = "임산부 우대";
 		}
 		
-		savedate[ordercount] = date;
-		savehuman[ordercount] = human;
-		saveea[ordercount] = ea;
-		saveresult[ordercount] = result;
-		savewoodea[ordercount] = woodea;
+		savedate.add(date);
+		savehuman.add(human);
+		saveea.add(ea);
+		saveresult.add(result);
+		savewoodea.add(woodea);
 		
 		System.out.println("추가입력하시겠습니까 (1. 추가, 2. 종료) : ");
 		type = scan.nextInt();
@@ -79,7 +80,7 @@ public class ever1 {
 		System.out.println("감사합니다.");
 		System.out.println("=============== 에버랜드 =====================");
 		for(int index = 0; index < ordercount; index++) {
-		System.out.println("날짜:" + savedate[index] + " " + savehuman[index] + " X " + saveea[index] +"명 "+ saveresult[index] + "원 " + savewoodea[index] + " 감사합니다");
+		System.out.println("날짜:" + savedate.get(index) + " " + savehuman.get(index) + " X " + saveea.get(index) +"명 "+ saveresult.get(index) + "원 " + savewoodea.get(index) + " 감사합니다");
 		System.out.println("============================================");
 
 	}
